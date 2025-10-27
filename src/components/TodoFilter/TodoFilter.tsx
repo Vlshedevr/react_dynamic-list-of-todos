@@ -7,31 +7,23 @@ enum SortType {
 }
 
 type Props = {
-  query: string;
   status: SortType;
   onChangeStatus: (newSortType: SortType) => void;
-  clearQuery: () => void;
   onChangeQuery: (newQuery: string) => void;
 };
 
 export const TodoFilter = ({
-  query,
   status,
   onChangeStatus,
-  clearQuery,
   onChangeQuery,
 }: Props) => {
   const [inputQuery, setInputQuery] = useState('');
   const timerId = useRef<number | null>(null);
 
   const reset = () => {
-    clearQuery();
     setInputQuery('');
+    onChangeQuery('');
   };
-
-  useEffect(() => {
-    setInputQuery(query);
-  }, [query]);
 
   useEffect(() => {
     if (timerId.current !== null) {

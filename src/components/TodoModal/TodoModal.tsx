@@ -6,10 +6,13 @@ import { Todo } from '../../types/Todo';
 
 type Props = {
   selectTodo: Todo;
-  deleteSelect: () => void;
+  handledeleteSelect: () => void;
 };
 
-export const TodoModal: React.FC<Props> = ({ selectTodo, deleteSelect }) => {
+export const TodoModal: React.FC<Props> = ({
+  selectTodo,
+  handledeleteSelect,
+}) => {
   const [loader, setLoader] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
@@ -44,7 +47,7 @@ export const TodoModal: React.FC<Props> = ({ selectTodo, deleteSelect }) => {
               type="button"
               className="delete"
               data-cy="modal-close"
-              onClick={deleteSelect}
+              onClick={handledeleteSelect}
             />
           </header>
 

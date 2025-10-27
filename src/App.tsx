@@ -53,8 +53,7 @@ export const App: React.FC = () => {
   const [loader, setLoader] = useState(false);
 
   const onSelect = (todo: Todo) => setSelectTodo(todo);
-  const deleteSelect = () => setSelectTodo(null);
-  const clearQuery = () => setQery('');
+  const handledeleteSelect = () => setSelectTodo(null);
   const onChangeStatus = (newStatus: SortType) => setStatus(newStatus);
   const onChangeQuery = (newQuery: string) => setQery(newQuery);
 
@@ -82,10 +81,8 @@ export const App: React.FC = () => {
 
             <div className="block">
               <TodoFilter
-                query={qery}
                 status={status}
                 onChangeStatus={onChangeStatus}
-                clearQuery={clearQuery}
                 onChangeQuery={onChangeQuery}
               />
             </div>
@@ -105,7 +102,10 @@ export const App: React.FC = () => {
         </div>
       </div>
       {selectTodo && (
-        <TodoModal selectTodo={selectTodo} deleteSelect={deleteSelect} />
+        <TodoModal
+          selectTodo={selectTodo}
+          handledeleteSelect={handledeleteSelect}
+        />
       )}
     </>
   );
