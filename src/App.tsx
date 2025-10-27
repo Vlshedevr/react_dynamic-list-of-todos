@@ -52,9 +52,9 @@ export const App: React.FC = () => {
 
   const [loader, setLoader] = useState(false);
 
-  const onSelect = (todo: Todo) => setSelectTodo(todo);
+  const handleSelect = (todo: Todo) => setSelectTodo(todo);
   const handledeleteSelect = () => setSelectTodo(null);
-  const onChangeStatus = (newStatus: SortType) => setStatus(newStatus);
+  const handleChangeStatus = (newStatus: SortType) => setStatus(newStatus);
   const onChangeQuery = (newQuery: string) => setQery(newQuery);
 
   const readyTodos = useMemo(
@@ -82,7 +82,7 @@ export const App: React.FC = () => {
             <div className="block">
               <TodoFilter
                 status={status}
-                onChangeStatus={onChangeStatus}
+                handleChangeStatus={handleChangeStatus}
                 onChangeQuery={onChangeQuery}
               />
             </div>
@@ -94,7 +94,7 @@ export const App: React.FC = () => {
                 <TodoList
                   todos={readyTodos}
                   selectTodo={selectTodo}
-                  onSelect={onSelect}
+                  handleSelect={handleSelect}
                 />
               )}
             </div>

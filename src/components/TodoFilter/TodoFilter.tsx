@@ -8,13 +8,13 @@ enum SortType {
 
 type Props = {
   status: SortType;
-  onChangeStatus: (newSortType: SortType) => void;
+  handleChangeStatus: (newSortType: SortType) => void;
   onChangeQuery: (newQuery: string) => void;
 };
 
 export const TodoFilter = ({
   status,
-  onChangeStatus,
+  handleChangeStatus,
   onChangeQuery,
 }: Props) => {
   const [inputQuery, setInputQuery] = useState('');
@@ -49,7 +49,7 @@ export const TodoFilter = ({
           <select
             data-cy="statusSelect"
             value={status}
-            onChange={e => onChangeStatus(e.target.value as SortType)}
+            onChange={e => handleChangeStatus(e.target.value as SortType)}
           >
             <option value={SortType.ALL}>All</option>
             <option value={SortType.BY_ACTIVE}>Active</option>
